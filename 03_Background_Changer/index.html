@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Background-Changer</title>
+
+    <!-- Styling-Part -->
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Allura&family=Poppins:wght@300&display=swap");
+
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Poppins", sans-serif;
+            width: 100vw;
+            height: 100vh;
+            /* background-color: #0A2647; */
+        }
+
+        html {
+            font-size: 62.5%;
+        }
+
+        .container {
+            width: 100%;
+            height: 100%;
+        }
+
+        #dark {
+            background-color: #0A2647;
+        }
+        #dark2 {
+            background-color: #1B262C;
+        }
+        #vintage {
+            background-color: #B1B2FF;
+        }
+        #light {
+            background-color: #B9F3FC;
+        }
+        #light2 {
+            background-color: #EAC7C7;
+        }
+
+        .content {
+            width: 100%;
+            height: 100%;
+            display: grid;
+            align-content: center;
+            gap: 2rem;
+            justify-content: center;
+            grid-template-columns: minmax(250px, 1fr);
+        }
+
+        .color__switchers {
+            height: fit-content;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .switcher {
+            width: 30px;
+            height: 30px;
+            border: 1px solid black;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        #text {
+            text-align: center;
+            font-size: 1.4rem;
+            max-width: 500px;
+            justify-self: center;
+            line-height: 2.2;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="content">
+            <div class="color__switchers">
+                <span class="switcher" id="dark" onclick="changeBg('#0A2647')"></span>
+                <span class="switcher" id="vintage" onclick="changeBg('#B1B2FF')"></span>
+                <span class="switcher" id="light" onclick="changeBg('#B9F3FC')"></span>
+                <span class="switcher" id="light2" onclick="changeBg('#EAC7C7')"></span>
+                <span class="switcher" id="dark2" onclick="changeBg('#1B262C')"></span>
+            </div>
+            <p id="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi esse est, natus alias laudantium recusandae repellat excepturi dolor, vero ullam nulla consectetur, perspiciatis aliquid mollitia quisquam odit voluptatum eos minus qui quo necessitatibus architecto nemo. Reprehenderit, autem eos exercitationem vero itaque quasi blanditiis dolorum mollitia quidem iste, repellendus veniam voluptatum. Tempore officia cum, est eos obcaecati corrupti consectetur quod delectus atque et. Excepturi adipisci nulla similique in dolor aliquid quos perferendis animi minus explicabo, alias quia, qui consectetur amet accusantium, expedita nobis repellendus enim beatae reiciendis. Earum, exercitationem! Eum tenetur, animi fugit ducimus neque in qui velit error iure nisi, ipsa nulla incidunt dolorem ipsam, alias perferendis. Hic perferendis officia aut quibusdam quis, sit laboriosam nemo nam? Corrupti aspernatur nemo pariatur tenetur, minus minima animi, laborum, quos maxime voluptatem iure sapiente suscipit magnam numquam.</p>
+        </div>
+    </div>
+
+
+    <!-- JavaScript-Part -->
+    <script>
+        function changeBg(color){
+
+            let body = document.body;
+            body.style.backgroundColor = color;
+
+            if (color == '#0A2647' || color == '#1B262C') {
+                document.getElementById('text').style.color = '#fff';
+            } else {
+                document.getElementById('text').style.color = '#000';
+            }
+        };
+    </script>
+</body>
+</html>

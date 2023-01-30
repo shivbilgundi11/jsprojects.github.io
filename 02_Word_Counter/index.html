@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word Counter</title>
+
+    <!-- Styling-Part -->
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Allura&family=Poppins:wght@300&display=swap");
+
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Poppins", sans-serif;
+            background-color: #06283D;
+            height: 80vh;
+            width: 100vw;
+        }
+
+        html {
+            font-size: 62.5%;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: minmax(200px, 1fr);
+            align-content: center;
+            gap: 2rem;
+            justify-content: center;
+            text-align: center;
+            width: 100%;
+            height: 100%;
+            max-width: 900px;
+            min-width: 250px;
+            margin: auto;
+            padding: 0 2rem;
+        }
+
+        h1 {
+            color: #DFF6FF;
+            font-size: 4.6rem;
+            font-family: "Allura", serif;
+            background-color: #1363DF;
+            padding: 1rem;
+            border: 1px solid #47B5FF;
+            border-radius: 6px;
+        }
+
+        textarea {
+            min-height: 28rem;
+            font-size: 18px;
+            background-color: #DFF6FF;
+            border-radius: 6px;
+        }
+
+        p {
+            color: #DFF6FF;
+            font-size: x-large;
+            background-color: #1363DF;
+            padding: 1rem;
+            border: 1px solid #47B5FF;
+            border-radius: 6px;
+        }
+
+
+        @media screen and (max-width : 620px){
+            h1 {
+                font-size: 3.2rem;
+            }
+
+            p {
+                font-size: 1.8rem;
+            }
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Word And Character Count</h1>
+
+        <textarea id="textarea" cols="30" rows="10"></textarea>
+
+        <p class="result">
+            <span id="totalword">0</span> Word's And
+            <span id="totalchar">0</span> Character's.
+        </p>
+    </div>
+
+
+    <!-- JavaScript-Part -->
+    <script>
+        let textBox = document.getElementById('textarea');
+
+        textBox.addEventListener('input', function(){
+            let text = this.value;
+
+            let charCount = text.length;
+            document.getElementById('totalchar').innerHTML = charCount;
+            
+            text = text.trim();
+
+            let totalWord = text.split(" ");
+            let cleanText = totalWord.filter(function(elm){
+                return elm != "";
+            });
+
+            document.getElementById('totalword').innerHTML = cleanText.length
+        });
+    </script>
+</body>
+</html>

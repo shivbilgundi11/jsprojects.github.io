@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temp-Converter</title>
+
+
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Allura&family=Poppins:wght@300&display=swap");
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            font-size: 62.5%;  /* Font-Size: 10px; */
+        }
+
+        img {
+            width: 100%;
+            display: block;
+            object-fit: cover;
+        }
+
+        body {
+            font-family: "Poppins", sans-serif;
+            background-color: #16213E;
+            height: 100vh;
+            width: 100vw;
+            display: grid;
+            gap: 2rem;
+            padding: 3rem;
+            grid-template-columns: minmax(200px, 1fr);
+        }
+
+        .main-box {
+            background-color: #0F3460;
+            padding: 3rem;
+            align-self: center;
+            justify-self: center;
+            border: 1px solid #533483;
+        }
+
+        .title {
+            color: #fff;
+            font-size: 5.6rem;
+            font-family: "Allura", serif;
+            text-align: center;
+        }
+
+        .input__container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        label {
+            color: #fff;
+            font-size: 1.5rem;
+        }
+
+        input {
+            text-align: center;
+            padding: 1.5rem 3rem;
+            outline: unset;
+        }
+
+        p {
+            font-size: 2rem;
+            color: #fff;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        @media screen and (max-width : 600px) {
+            h1 {
+                font-size: 3rem;
+            }
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="main-box">
+        <h1 class="title">Temperature Converter</h1>
+        <div class="input__container">
+            <div class="input__box">
+                <label for="celsius">Celsius :</label><br>
+                <input type="number" value="0" id="celsius" class="input__feild">
+            </div>
+            <div class="input__box">
+                <label for="fahrenheit">Fahrenheit :</label><br>
+                <input type="number" value="32" id="fahrenheit" class="input__feild">
+            </div>
+        </div>
+        <div class="formula__container">
+            <p id="formula">Formula :</p>
+        </div>
+    </div>
+
+
+
+    <script>
+        //Lets create two function for convertion formula.
+
+        let cel = document.getElementById('celsius');
+        let fah = document.getElementById('fahrenheit');
+        let formula = document.getElementById('formula');
+
+        cel.addEventListener('input', function (){
+            let c = this.value;
+            let f = (c * 9/5) + 32;
+            fah.value = f;
+
+            formula.innerHTML = `(${c} * 9/5) + 32 = ${f}°F`;
+        });
+        fah.addEventListener('input', function (){
+            let f = this.value;
+            let c = (f - 32) * 5/9;
+            cel.value = c;
+
+            formula.innerHTML = `(${f} - 32) * 5/9 = ${c}°C`;
+        });
+    </script>
+</body>
+</html>
