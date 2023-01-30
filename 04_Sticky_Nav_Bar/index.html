@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sticky Nav-Bar</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="empty">
+
+    </div>
+    <header>
+        <nav id="nav">
+            <div class="nav__container container">
+                <a href="index.html" class="nav__logo">Dev_ShivB</a>
+
+                <ul class="nav__lists">
+                    <li class="nav__link">About</li>
+                    <li class="nav__link">Products</li>
+                    <li class="nav__link mobile">Contact</li>
+                    <li class="nav__link mobile">Help</li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <div class="empty__sec">
+        
+    </div>
+
+
+    <!-- JavaScript-Part -->
+    <script>
+        window.addEventListener('scroll', function (){
+            if(window.pageYOffset > 110){
+                document.getElementById('nav').classList.add('nav__sticky');
+            }else{
+                document.getElementById('nav').classList.remove('nav__sticky');
+            }
+        });
+    </script>
+</body>
+</html>
